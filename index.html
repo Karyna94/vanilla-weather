@@ -16,80 +16,90 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="row">
-          <div class="col-6">
-            <h1>New York</h1>
-            <ul>
-              <li>Tuesday 16:19</li>
-              <li>Humidity: <strong>71%</strong></li>
-              <li>Wind: <strong>2.68km/h</strong></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/4274/4274163.png"
-              alt="Sunny"
-            />
-            <span>20</span>
-            <span>°C</span>
-            <div>Sunny</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div>Tue</div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/5041/5041818.png"
-              alt="Sunny cloud"
-            />
-            <div>
-              <span>18°</span>
-              <span>25°</span>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="weather-now">
+            <div class="row">
+              <div class="col-6">
+                <h1>New York</h1>
+                <ul>
+                  <li>Tuesday 16:19</li>
+                  <li>Humidity: <strong>71%</strong></li>
+                  <li>Wind: <strong>2.68km/h</strong></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <div class="temperature-container d-flex justify-content-end">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/7696/7696344.png"
+                    alt="Sunny"
+                    id="icon"
+                  />
+                  <div>
+                    <span class="temperature">20</span>
+                    <span class="unit"
+                      >°C| <a href="#" class="Fahrenheit">°F</a></span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div>Wed</div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/5041/5041863.png"
-              alt="Rainy"
-            />
-            <div>
-              <span>15°</span>
-              <span>20°</span>
+          <div class="row">
+            <div class="col weather-day">
+              <div class="day">Tue</div>
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/8325/8325943.png"
+                alt="Sunny cloud"
+              />
+              <div>
+                <span class="temp-day">25°</span>
+                <span class="temp-night">18°</span>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div>Thu</div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/4274/4274163.png"
-              alt="Sunny"
-            />
-            <div>
-              <span>20°</span>
-              <span>25°</span>
+            <div class="col weather-day">
+              <div class="day">Wed</div>
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/8325/8325809.png"
+                alt="Rainy"
+              />
+              <div>
+                <span class="temp-day">20°</span>
+                <span class="temp-night">15°</span>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div>Fri</div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/5041/5041818.png"
-              alt="Sunny cloud"
-            />
-            <div>
-              <span>21°</span>
-              <span>27°</span>
+            <div class="col weather-day">
+              <div class="day">Thu</div>
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/7696/7696344.png"
+                alt="Sunny"
+              />
+              <div>
+                <span class="temp-day">25°</span>
+                <span class="temp-night">20°</span>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div>Sat</div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/5041/5041818.png"
-              alt="Sunny cloud"
-            />
-            <div>
-              <span>21°</span>
-              <span>28°</span>
+            <div class="col weather-day">
+              <div class="day">Fri</div>
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/8325/8325943.png"
+                alt="Sunny cloud"
+              />
+              <div>
+                <span class="temp-day">27°</span>
+                <span class="temp-night">21°</span>
+              </div>
+            </div>
+            <div class="col weather-day">
+              <div class="day">Sat</div>
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/8325/8325943.png"
+                alt="Sunny cloud"
+              />
+              <div>
+                <span class="temp-day">28°</span>
+                <span class="temp-night">21°</span>
+              </div>
             </div>
           </div>
         </div>
