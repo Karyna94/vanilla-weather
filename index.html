@@ -25,18 +25,19 @@
                 <h1 id="city"></h1>
                 <ul>
                   <li>Last updated: <span id="date"></span></li>
-                  <li id="description"></li>
-                  <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind: <span id="wind"></span> km/h</li>
+                  <li id="description" class="description-style"></li>
+                  <li>
+                    Humidity:
+                    <span id="humidity" class="description-style"></span> %
+                  </li>
+                  <li>
+                    Wind: <span id="wind" class="description-style"></span> km/h
+                  </li>
                 </ul>
               </div>
               <div class="col-6">
                 <div class="temperature-container d-flex justify-content-end">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/128/7696/7696344.png"
-                    alt="Sunny"
-                    id="icon"
-                  />
+                  <img src="" alt="" id="icon" />
                   <div>
                     <span class="temperature" id="temp">20</span>
                     <span class="unit"
@@ -63,7 +64,7 @@
               <div class="day">Wed</div>
               <img
                 src="https://cdn-icons-png.flaticon.com/128/8325/8325809.png"
-                alt="Rainy"
+                alt="Rainy cloud"
               />
               <div>
                 <span class="temp-day">20°</span>
@@ -97,6 +98,7 @@
               <img
                 src="https://cdn-icons-png.flaticon.com/128/8325/8325943.png"
                 alt="Sunny cloud"
+                id="icon"
               />
               <div>
                 <span class="temp-day">28°</span>

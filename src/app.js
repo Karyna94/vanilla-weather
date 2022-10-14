@@ -20,8 +20,29 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
+let iconConvert = {
+  "01d": "clearsky",
+  "01n": "night",
+  "02d": "fewclouds",
+  "02n": "fewclouds",
+  "03d": "scatteredclouds",
+  "03n": "scatteredclouds",
+  "04d": "brokenclouds",
+  "04n": "brokenclouds",
+  "09d": "showerrain",
+  "09n": "showerrain",
+  "10d": "rain",
+  "10n": "rain",
+  "11d": "thunderstorm",
+  "11n": "thunderstorm",
+  "13d": "snow",
+  "13n": "snow",
+  "50d": "haze",
+  "50n": "mist",
+};
 
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city");
@@ -34,9 +55,14 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  let iconPath = iconConvert[response.data.weather[0].icon];
+  iconElement.setAttribute("src", `icons/${iconPath}.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "b2d9fa1f2b35557e4615dd5fab218834";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+let city = "New York";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);

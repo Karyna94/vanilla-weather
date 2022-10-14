@@ -35,8 +35,9 @@ li {
 li:first-letter {
   text-transform: capitalize;
 }
-strong {
+.description-style {
   color: #070fb2;
+  font-weight: 600;
 }
 
 .temperature-container img {
