@@ -19,19 +19,38 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
+          <form id="search-form">
+            <div class="row">
+              <div class="col-8 type">
+                <input
+                  type="search"
+                  placeholder="Type a city..."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-4">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-50"
+                />
+              </div>
+            </div>
+          </form>
           <div class="weather-now">
             <div class="row">
               <div class="col-6">
                 <h1 id="city"></h1>
                 <ul>
                   <li>Last updated: <span id="date"></span></li>
-                  <li id="description" class="description-style"></li>
                   <li>
                     Humidity:
-                    <span id="humidity" class="description-style"></span> %
+                    <span id="humidity" class="conditions-style"></span> %
                   </li>
                   <li>
-                    Wind: <span id="wind" class="description-style"></span> km/h
+                    Wind: <span id="wind" class="conditions-style"></span> km/h
                   </li>
                 </ul>
               </div>
@@ -45,6 +64,7 @@
                     >
                   </div>
                 </div>
+                <div id="description" class="description-style"></div>
               </div>
             </div>
           </div>
