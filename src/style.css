@@ -15,8 +15,24 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-.type {
-  padding-left: 120px;
+.form-control {
+  margin-left: 120px;
+  max-width: 400px;
+  background: transparent;
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: #a250e5;
+  border-width: 1px;
+}
+.btn-primary {
+  background-color: #a250e5;
+  border-color: #a250e5;
+  border-radius: 6px 6px 6px 6px;
+}
+.btn-primary:hover {
+  color: #33184f;
+  background-color: transparent;
+  border-color: #a250e5;
 }
 
 h1 {
@@ -62,12 +78,19 @@ li:first-letter {
   color: #33184f;
 }
 .temperature-container .unit {
+  margin-left: -10px;
   color: #070fb2;
   position: relative;
-  font-size: 32px;
+  font-size: 28px;
   top: -46px;
   font-weight: 500;
 }
+.temperature-container .active {
+  color: #272142;
+  cursor: default;
+  text-decoration: none;
+}
+
 .weather-now {
   border: 1px #272142;
   margin: 70px 20px;
