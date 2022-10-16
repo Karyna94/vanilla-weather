@@ -78,16 +78,17 @@ li:first-letter {
   color: #33184f;
 }
 .temperature-container .unit {
-  margin-left: -10px;
-  color: #070fb2;
+  margin-left: 2px;
   position: relative;
   font-size: 28px;
-  top: -46px;
+  top: -48px;
   font-weight: 500;
 }
 .temperature-container .active {
-  color: #272142;
   cursor: default;
+  text-decoration: none;
+}
+.temperature-container .Fahrenheit:hover {
   text-decoration: none;
 }
 
@@ -132,7 +133,4 @@ li:first-letter {
 .weather-day img {
   height: 90px;
   width: 90px;
-}
-.Fahrenheit {
-  text-decoration: none;
 }
