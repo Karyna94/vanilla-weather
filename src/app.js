@@ -1,4 +1,4 @@
-function formatDate(timestamp) {
+function formatTime(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
@@ -18,7 +18,28 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day}, ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
+}
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let date = now.getDate();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[now.getMonth()];
+  let year = now.getFullYear();
+  return `${date} ${month}, ${year}`;
 }
 
 let iconConvert = {
@@ -54,12 +75,14 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let timeElement = document.querySelector("#date");
+  timeElement.innerHTML = formatTime(response.data.dt * 1000);
   let iconElement = document.querySelector("#icon");
   let iconPath = iconConvert[response.data.weather[0].icon];
   iconElement.setAttribute("src", `icons/${iconPath}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   celsiusTemperature = response.data.main.temp;
 }
