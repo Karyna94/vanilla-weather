@@ -62,6 +62,31 @@ let iconConvert = {
   "50d": "haze",
   "50n": "mist",
 };
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col">
+      <div class="day">${day}</div>
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/8325/8325943.png"
+        alt="Sunny cloud"
+      />
+      <div>
+        <span class="temp-day">25°</span>
+        <span class="temp-night">18°</span>
+      </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayTemperature(response) {
   console.log(response.data);
@@ -124,3 +149,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("New York");
+displayForecast();
