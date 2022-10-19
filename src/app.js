@@ -41,6 +41,12 @@ function formatDate(timestamp) {
   let year = now.getFullYear();
   return `${date} ${month}, ${year}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 
 let iconConvert = {
   "01d": "clearsky",
@@ -62,30 +68,42 @@ let iconConvert = {
   "50d": "haze",
   "50n": "mist",
 };
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      let iconName = iconConvert[forecastDay.weather[0].icon];
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col">
-      <div class="day">${day}</div>
+      <div class="day">${formatDay(forecastDay.dt)}</div>
+      
       <img
-        src="https://cdn-icons-png.flaticon.com/128/8325/8325943.png"
+        src="icons/${iconName}.png"
         alt="Sunny cloud"
       />
       <div>
-        <span class="temp-day">25°</span>
-        <span class="temp-night">18°</span>
+        <span class="temp-day">${Math.round(forecastDay.temp.max)}°</span>
+        <span class="temp-night">${Math.round(forecastDay.temp.min)}°</span>
       </div>
     </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b2d9fa1f2b35557e4615dd5fab218834";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -110,6 +128,8 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 function search(city) {
   let apiKey = "b2d9fa1f2b35557e4615dd5fab218834";
